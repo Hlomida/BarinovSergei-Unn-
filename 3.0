@@ -1,0 +1,188 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <fstream>
+#include <stdio.h>
+#include <iostream>
+#include <conio.h>
+#include <stdlib.h>
+#define SIZE 1024
+
+using namespace std;
+
+void Add()
+
+{
+
+	char n, l, m;
+
+	FILE* f;
+		f = fopen("Users.txt", "a+");
+	if (f)
+	{
+		printf("Enter name:");
+
+		scanf("%s", &n);
+		fputs("\n", f);
+		fprintf(f, "%s ", &n);
+
+		printf("Enter Last Name:");
+
+		scanf(" %s", &l);
+
+		fprintf(f, "%s ", &l);
+
+		printf("Enter Number:");
+
+		scanf(" %s", &m);
+
+		fprintf(f, "%s ", &m);
+		fclose(f);
+	}
+	else
+	{
+		printf("Can't open file");
+	}
+
+}
+
+void Del()
+
+{	
+	char buf[SIZE], temp[SIZE], c;
+		int subDetected = 0, len;
+		long start;
+	FILE* f;
+	FILE* g;
+	f = fopen("Users.txt", "r");
+	g = fopen("G.txt", "w");
+
+	
+	
+		printf("Enter your line:\n");
+		fgets(buf, SIZE, stdin);
+		buf[strlen(buf) - 1] = '\0';
+		len = strlen(buf);
+		puts(buf);
+
+		do
+		{
+			start = ftell(f);
+			c = getc(f);
+			if (c == EOF) break;
+			if (c == buf[0])              //возможно, начало подстроки
+			{
+				fseek(f, start, SEEK_SET);      //во входном потоке возвращаемся на одну позицию назад 
+				fgets(temp, len + 1, f);        //считываем строку длиной введенной строки buf
+				puts(temp);
+				if (strcmp(buf, temp) == 0)      //если строки равны
+					fseek(f, start + len, SEEK_SET); //пропускаем во входном потоке эту строку
+				else                  //если совпал символ, но не совпали строки
+				{
+					putc(c, g);           //записываем символ в выходной поток
+					fseek(f, start + 1, SEEK_SET);  //готовимся к считыванию следующего символа
+				}
+			}
+			else
+				putc(c, g); //обычный символ - записываем в выходной поток
+		} while (c != EOF);
+
+		fclose(f);
+		fclose(g);
+	
+	/*const char* st = "name";
+
+	const int size = 1024;
+	char pattern[size];
+
+	fseek(f, 0, SEEK_END);
+	char* storyData = new char[ftell(f) + 1];
+	char* ptr = storyData;
+	*ptr = 0;
+	fseek(f, 0, SEEK_SET);
+
+	while (fgets(pattern, size, f)) {
+		if (strcmp(st, pattern) != 0) {
+			strcat(ptr, pattern);
+			ptr += strlen(pattern);
+		}
+	}
+
+	fclose(f);
+	f = fopen("G.txt", "w");
+	fputs(storyData, f);
+	fclose(f);
+
+	delete[] storyData;*/
+	
+
+
+}
+
+
+
+
+void Find()
+
+{
+
+	FILE* f;
+
+	if (!(f = fopen("Users.txt", "rt")))
+	{
+		printf("Could Not Open File");
+	}	
+	char word[20];
+	printf("Enter abonent:1");
+	scanf("%s", &word);
+	ifstream input("Users.txt");
+	char buffer[1024];
+	while (input.getline(buffer, 1024)) {
+		if (strstr(buffer, word))
+			printf("%s\n", buffer);
+	}
+	fclose(f);
+}
+
+int main(int argc, char** argv)
+
+{
+
+	int com;
+
+
+
+	printf("Type Command:\n1)Add\n2)Del\n3)Find\n");
+
+	scanf("%d", &com);
+
+	switch (com)
+
+	{
+
+	case 1:
+
+		Add();
+
+		break;
+
+	case 2:
+
+		Del();
+
+		break;
+
+	case 3:
+
+		Find();
+
+		break;
+
+	}
+
+
+
+	getchar();
+
+	return 0;
+
+
+}
