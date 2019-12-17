@@ -42,11 +42,7 @@ void Add()
 		printf("Can't open file");
 	}
 
-}
-
-void Del()
-
-{	
+}	
 	void Del()
 
 {
@@ -66,13 +62,13 @@ void Del()
 	fp2 = fopen("temp.txt", "w");
 	c = getc(fp1);
 	while (c != EOF) {
-		c = getc(fp1);
 		if (c == '\n')
 			temp++;
 		if (temp != del_line)
 		{
 			putc(c, fp2);
 		}
+		c = getc(fp1);
 	}
 	fclose(fp1);
 	fclose(fp2);
@@ -86,15 +82,8 @@ void Del()
 	}
 	fclose(fp1);
 }
-}
-
-
-
-
 void Find()
-
 {
-
 	FILE* f;
 
 	if (!(f = fopen("Users.txt", "rt")))
