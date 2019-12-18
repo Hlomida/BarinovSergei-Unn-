@@ -78,20 +78,23 @@ void Del()
 
 	char c;
 
-	int del_line, cnt = 0, temp = 1;
+	int del_line, cnt = 1, temp = 1;
 
 	f = fopen("Users.txt", "r");
-
+	printf("1 ");
 	c = getc(f);
-
 	while (c != EOF)
 
 	{
-
+		
 		printf("%c", c);
-
+		if (c == '\n')
+		{
+			cnt++;
+			printf("%d ",cnt);
+		}
+		
 		c = getc(f);
-
 	}
 
 	rewind(f);
@@ -101,7 +104,7 @@ void Del()
 	printf(" \n Enter line number of the line to be deleted:");
 
 	scanf("%d", &del_line);
-
+	cnt = 0;
 	while (!feof(f)) {
 
 		fscanf(f, "%*[^\n]%*c");
