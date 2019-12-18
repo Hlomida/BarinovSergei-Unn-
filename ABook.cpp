@@ -50,6 +50,26 @@ void Add()
 	}
 }
 
+void Show()
+{
+	FILE* f;
+
+	char c;
+	f = fopen("Users.txt", "r");
+
+	c = getc(f);
+
+	while (c != EOF)
+
+	{
+
+		printf("%c", c);
+
+		c = getc(f);
+
+	}
+	getchar();
+}
 void Del()
 
 {
@@ -143,7 +163,6 @@ void Del()
 		}
 
 	}
-	getchar();
 	fclose(f);
 
 }
@@ -182,49 +201,64 @@ void Find()
 			printf("%s\n", buffer);
 			i++;
 		}
-	}if (i == 0) printf("No such User");
+	}if (i == 0) printf("No such User\n");
 
 	fclose(f);
 	getchar();
-
 }
 
-int main(int argc, char** argv)
+int main()
 
 {
-
+	bool done = false;
 	int com;
+	
+			do 
+			{
+				printf("Type Command:\n1)Add User\n2)Delete User\n3)Find User\n4)Show list\n5)Exit the programm\n");
 
-	printf("Type Command:\n1)Add\n2)Del\n3)Find\n");
+			scanf("%d", &com);
 
-	scanf("%d", &com);
+			switch (com)
 
-	switch (com)
+			{
 
-	{
+			case 1:
 
-	case 1:
+				Add();
+				getchar();
+				system("cls");
+				break;
 
-		Add();
+			case 2:
 
-		break;
+				Del();
+				getchar();
+				system("cls");
+				break;
 
-	case 2:
+			case 3:
+				Find();
+				getchar();
+				system("cls");
+				break;
+			case 4:
+				Show();
+				getchar();
+				system("cls");
+				break;
+			case 5:
+				done = true;
+				exit(0);
+			default:
+				printf("Incorrect command\n");
+				getchar();
+				system("cls");
+				break;
+			
+			}
 
-		Del();
-
-		break;
-
-	case 3:
-
-		Find();
-
-		break;
-
-	}
-
-	getchar();
-
+			} while (!done);
 	return 0;
 
 }
