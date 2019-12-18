@@ -35,7 +35,7 @@ void Add()
 {
 	FILE* f, * fp2;
 	char c;
-	int del_line, temp = 1;
+	int del_line, cnt = 0, temp = 1;
 	f = fopen("Users.txt", "r");
 	c = getc(f);
 	while (c != EOF)
@@ -71,7 +71,7 @@ void Add()
 	fclose(fp2);
 	remove("Users.txt");
 	rename("temp.txt", "Users.txt");
-	fp1 = fopen("Users.txt", "r");
+	f = fopen("Users.txt", "r");
 	c = getc(f);
 	while (c != EOF) {
 		printf("%c", c);
