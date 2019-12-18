@@ -5,7 +5,7 @@
 #include <conio.h>
 #include <stdlib.h>
 #define SIZE 1024
-
+using namespace std;
 void Add()
 {
 	char n, l, m;
@@ -15,7 +15,6 @@ void Add()
 	{
 		printf("Enter name:");
 		scanf("%s", &n);
-		fputs("\n", f);
 		fprintf(f, "%s ", &n);
 		printf("Enter Last Name:");
 		scanf(" %s", &l);
@@ -23,6 +22,7 @@ void Add()
 		printf("Enter Number:");
 		scanf(" %s", &m);
 		fprintf(f, "%s ", &m);
+		fputs("\n", f);
 		fclose(f);
 	}
 	else
@@ -33,21 +33,31 @@ void Add()
 }	
 	void Del()
 {
-	FILE* fp1, * fp2;
+	FILE* f, * fp2;
 	char c;
 	int del_line, temp = 1;
-	fp1 = fopen("Users.txt", "r");
-	c = getc(fp1);
+	f = fopen("Users.txt", "r");
+	c = getc(f);
 	while (c != EOF)
 	{
 		printf("%c", c);
-		c = getc(fp1);
+		c = getc(f);
 	}
-	rewind(fp1);
+	rewind(f);
+		
 	printf(" \n Enter line number of the line to be deleted:");
 	scanf("%d", &del_line);
+		while (!feof(f)) {
+		fscanf(f, "%*[^\n]%*c");
+		cnt++;
+	}
+	if (del_line >= cnt)
+		printf("No User with such number");
+	else 
+	{
 	fp2 = fopen("temp.txt", "w");
-	c = getc(fp1);
+		rewind(f);
+	c = getc(f);
 	while (c != EOF) {
 		if (c == '\n')
 			temp++;
@@ -55,19 +65,20 @@ void Add()
 		{
 			putc(c, fp2);
 		}
-		c = getc(fp1);
+		c = getc(f);
 	}
-	fclose(fp1);
+	fclose(f);
 	fclose(fp2);
 	remove("Users.txt");
 	rename("temp.txt", "Users.txt");
 	fp1 = fopen("Users.txt", "r");
-	c = getc(fp1);
+	c = getc(f);
 	while (c != EOF) {
 		printf("%c", c);
-		c = getc(fp1);
+		c = getc(f);
 	}
-	fclose(fp1);
+	}	
+	fclose(f);
 }
 void Find()
 {
