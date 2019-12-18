@@ -1,13 +1,9 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <fstream>
-
 #include <stdio.h>
-
 #include <iostream>
-
 #include <conio.h>
-
 #include <stdlib.h>
 
 
@@ -53,20 +49,23 @@ void Add()
 void Show()
 {
 	FILE* f;
-
+	int cnt = 1;
 	char c;
 	f = fopen("Users.txt", "r");
-
+	printf("1 ");
 	c = getc(f);
-
 	while (c != EOF)
 
 	{
 
 		printf("%c", c);
+		if (c == '\n')
+		{
+			cnt++;
+			printf("%d ", cnt);
+		}
 
 		c = getc(f);
-
 	}
 	getchar();
 }
@@ -74,7 +73,7 @@ void Del()
 
 {
 
-	FILE* f, *fp2;
+	FILE* f, * fp2;
 
 	char c;
 
@@ -114,9 +113,10 @@ void Del()
 	}
 
 	if (del_line >= cnt)
-
+	{
 		printf("No User with such number");
-
+		getchar();
+	}
 	else
 
 	{
@@ -215,53 +215,53 @@ int main()
 {
 	bool done = false;
 	int com;
-	
-			do 
-			{
-				printf("Type Command:\n1)Add User\n2)Delete User\n3)Find User\n4)Show list\n5)Exit the programm\n");
 
-			scanf("%d", &com);
+	do
+	{
+		printf("Type Command:\n1)Add User\n2)Delete User\n3)Find User\n4)Show list\n5)Exit the programm\n");
 
-			switch (com)
+		scanf("%d", &com);
 
-			{
+		switch (com)
 
-			case 1:
+		{
 
-				Add();
-				getchar();
-				system("cls");
-				break;
+		case 1:
 
-			case 2:
+			Add();
+			getchar();
+			system("cls");
+			break;
 
-				Del();
-				getchar();
-				system("cls");
-				break;
+		case 2:
 
-			case 3:
-				Find();
-				getchar();
-				system("cls");
-				break;
-			case 4:
-				Show();
-				getchar();
-				system("cls");
-				break;
-			case 5:
-				done = true;
-				exit(0);
-			default:
-				printf("Incorrect command\n");
-				getchar();
-				system("cls");
-				break;
-			
-			}
+			Del();
+			getchar();
+			system("cls");
+			break;
 
-			} while (!done);
+		case 3:
+			Find();
+			getchar();
+			system("cls");
+			break;
+		case 4:
+			Show();
+			getchar();
+			system("cls");
+			break;
+		case 5:
+			done = true;
+			exit(0);
+		default:
+			printf("Incorrect command\n");
+			getchar();
+			system("cls");
+			break;
+
+		}
+
+	} while (!done);
 	return 0;
 
 }
