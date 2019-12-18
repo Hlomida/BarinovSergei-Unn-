@@ -89,7 +89,7 @@ void Find()
 		printf("Could Not Open File");
 	}	
 	char word[20];
-	printf("Enter abonent:1");
+	printf("Enter abonent:");
 	scanf("%s", &word);
 	ifstream input("Users.txt");
 	char buffer[1024];
