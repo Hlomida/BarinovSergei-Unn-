@@ -6,34 +6,22 @@
 #include <stdlib.h>
 #define SIZE 1024
 
-using namespace std;
-
 void Add()
-
 {
-
 	char n, l, m;
-
 	FILE* f;
-		f = fopen("Users.txt", "a+");
+	f = fopen("Users.txt", "a+");
 	if (f)
 	{
 		printf("Enter name:");
-
 		scanf("%s", &n);
 		fputs("\n", f);
 		fprintf(f, "%s ", &n);
-
 		printf("Enter Last Name:");
-
 		scanf(" %s", &l);
-
 		fprintf(f, "%s ", &l);
-
 		printf("Enter Number:");
-
 		scanf(" %s", &m);
-
 		fprintf(f, "%s ", &m);
 		fclose(f);
 	}
@@ -44,7 +32,6 @@ void Add()
 
 }	
 	void Del()
-
 {
 	FILE* fp1, * fp2;
 	char c;
@@ -101,48 +88,23 @@ void Find()
 	}
 	fclose(f);
 }
-
 int main(int argc, char** argv)
-
 {
-
 	int com;
-
-
-
 	printf("Type Command:\n1)Add\n2)Del\n3)Find\n");
-
 	scanf("%d", &com);
-
 	switch (com)
-
 	{
-
 	case 1:
-
 		Add();
-
 		break;
-
 	case 2:
-
 		Del();
-
 		break;
-
 	case 3:
-
 		Find();
-
 		break;
-
 	}
-
-
-
 	getchar();
-
 	return 0;
-
-
 }
