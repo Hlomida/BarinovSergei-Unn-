@@ -17,7 +17,7 @@ void Add()
 
 {
 
-	char n, l, m;
+	char n[40], l[40], m[40];
 
 	FILE* f;
 
