@@ -62,11 +62,14 @@ void Show()
 		if (c == '\n')
 		{
 			cnt++;
-			printf("%d ", cnt);
-		}
+			c = getc(f);
+			if (c != EOF)
+				printf("%d ", cnt);
 
-		c = getc(f);
+		}
+		else c = getc(f);
 	}
+	fclose(f);
 	getchar();
 }
 void Del()
@@ -85,15 +88,18 @@ void Del()
 	while (c != EOF)
 
 	{
-		
+
 		printf("%c", c);
 		if (c == '\n')
 		{
 			cnt++;
-			printf("%d ",cnt);
+			c = getc(f);
+			if (c != EOF)
+			printf("%d ", cnt);
+
 		}
+		else c = getc(f);
 		
-		c = getc(f);
 	}
 
 	rewind(f);
@@ -129,9 +135,7 @@ void Del()
 
 		while (c != EOF) {
 
-			if (c == '\n')
 
-				temp++;
 
 			if (temp != del_line)
 
@@ -140,7 +144,9 @@ void Del()
 				putc(c, fp2);
 
 			}
+			if (c == '\n')
 
+				temp++;
 			c = getc(f);
 
 		}
@@ -151,7 +157,7 @@ void Del()
 
 		remove("Users.txt");
 
-		rename("temp.txt", "Users.txt");
+		rename("temp.txt" ,"Users.txt");
 
 		f = fopen("Users.txt", "r");
 
