@@ -217,8 +217,11 @@ void Find()
 }
 
 int main()
-
 {
+	FILE* f;
+	f = fopen("Users.txt", "w");
+	fclose(f);
+	
 	bool done = false;
 	int com;
 
@@ -271,3 +274,4 @@ int main()
 	return 0;
 
 }
+
