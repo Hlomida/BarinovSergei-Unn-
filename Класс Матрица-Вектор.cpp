@@ -20,14 +20,14 @@ public:
 			this->z = vec.z;
 		cout <<"Copy Iniciated" << endl;
 	}
-	void operator = (const Vector& vec)
+	Vector & operator = (const Vector& vec)
 	{
 
 		cout << "= init" << endl;
 			this->x = vec.x;
 			this->y = vec.y;
 			this->z = vec.z;
-		
+			return *this;
 	}
 };
 
@@ -49,7 +49,7 @@ public:
 
 int main()
 {
-	Vector a(2, 5, 2);
+	Vector a(1, 5, 2);
 	cout << a.x <<" "<<a.y<<" "<<a.z <<endl;
 	Vector b(3, 7, 4);
 	cout << b.x << " " << b.y << " " << b.z << endl;
