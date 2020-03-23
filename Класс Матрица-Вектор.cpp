@@ -4,28 +4,35 @@ using namespace std;
 
 class Vector
 {
-private:
-	int* x, y, z;
 public:
-	int size;
-	Vector(int _x, int _y, int _z)
+	int x;
+	int y;
+	int z;
+	Vector(int x, int y, int z)
 	{
 		cout << "test 1" << endl;
+		cout << x << " " << y << " " << z << endl;
 	}
 	Vector(const Vector& vec)
 	{
-		this->size = vec.size;
-		this->x = new int[vec.size];
-		for (int i = 0; i < vec.size; i++)
-		{
-			this->x[i] = vec.x[i];
-		}
-		cout <<"Copy Iniciated" << size << endl;
+			this->x = vec.x;
+			this->y = vec.y;
+			this->z = vec.z;
+		cout <<"Copy Iniciated" << endl;
+	}
+	void operator = (const Vector& vec)
+	{
+
+		cout << "= init" << endl;
+			this->x = vec.x;
+			this->y = vec.y;
+			this->z = vec.z;
+		
 	}
 };
 
 
-class Matrix
+/*class Matrix
 {
 private:
 	int a;
@@ -38,10 +45,14 @@ public:
 		a = collumn * row;
 		cout << a << endl;
 	}
-};
+};*/
 
 int main()
 {
-	Vector a(2,5,1);
-	Vector b(a, 1, 5);
+	Vector a(2, 5, 2);
+	cout << a.x <<" "<<a.y<<" "<<a.z <<endl;
+	Vector b(3, 7, 4);
+	cout << b.x << " " << b.y << " " << b.z << endl;
+	a = b;
+	cout << a.x << " " << a.y << " " << a.z << endl;
 };
