@@ -1,42 +1,47 @@
 #include <iostream> 
 #include <cassert>
-
-int main()
-{};
+using namespace std;
 
 class Vector
 {
 private:
-	int* a;
-	int x, y, z;
+	int* x, y, z;
 public:
-	Vector(int _x, int _y, int _z) :
-		x(_x), y(_y), z(_z)
+	int size;
+	Vector(int _x, int _y, int _z)
 	{
-
+		cout << "test 1" << endl;
 	}
-	Vector(const Vector&vector):
-		x(vector _x),
-		y(vector _y),
-		z(vector _z)
-	{}
+	Vector(const Vector& vec)
+	{
+		this->size = vec.size;
+		this->x = new int[vec.size];
+		for (int i = 0; i < vec.size; i++)
+		{
+			this->x[i] = vec.x[i];
+		}
+		cout <<"Copy Iniciated" << size << endl;
+	}
 };
+
+
 class Matrix
 {
 private:
-	int* a;
+	int a;
 	int collumn, row;
 public:
-	Matrix(int _collumn, int _row):
+	Matrix(int _collumn, int _row) :
 		collumn(_collumn),
 		row(_row)
 	{
-		a = new int[collumn * row];
+		a = collumn * row;
+		cout << a << endl;
 	}
-	Matrix(const Matrix&marix):
-		collumn(matrix _collumn),
-		row(matrix _row)
-	{
+};
 
-	}
+int main()
+{
+	Vector a(2,5,1);
+	Vector b(a, 1, 5);
 };
