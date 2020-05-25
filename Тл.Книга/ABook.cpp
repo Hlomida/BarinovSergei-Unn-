@@ -5,6 +5,7 @@
 #include <iostream>
 #include <conio.h>
 #include <stdlib.h>
+#include <vector>
 
 
 using namespace std;
@@ -13,7 +14,9 @@ void Add()
 
 {
 
-	char n[40], l[40], m[40];
+	vector <string> n(40);
+        vector <string> l(40);
+        vector <string> m(40);
 
 	FILE* f;
 
@@ -193,7 +196,7 @@ void Find()
 
 	}
 
-	char word[20];
+	vector <string> word(20);
 
 	printf("Enter abonent:");
 
@@ -201,7 +204,7 @@ void Find()
 
 	ifstream input("Users.txt");
 
-	char buffer[1024];
+	vector <string> buffer(1024);
 
 	while (input.getline(buffer, 1024)) {
 
