@@ -1,8 +1,10 @@
-#include "Vector.h"
 #include "Matrix.h"
+template <class ValType>
+void TVector<ValType>::pVector() {}
 template <class ValType>
 TMatrix<ValType>& TMatrix<ValType>::operator=(const TMatrix<ValType> &mt)
 {
+
     if (this != &mt)
     {
         if (Size != mt.Size)
