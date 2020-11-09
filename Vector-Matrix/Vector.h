@@ -2,13 +2,14 @@
 using namespace std;
 #include <ostream>
 template <class ValType>
+ 
 class TVector
 {
-    protected:
-    ValType *pVector;
+protected:
+    ValType* pVector;
     int Size;
     int StartIndex;
-    public:
+public:
     TVector(int s = 10, int si = 0);
     TVector(const TVector &v);
     ~TVector();
