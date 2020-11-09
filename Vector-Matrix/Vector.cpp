@@ -1,6 +1,7 @@
 #include "Vector.h"
+
 template <class Valtype>
-TVector <Valtype>& TVector<Valtype>::operator=(const TVector &v)
+TVector <Valtype>& TVector<Valtype>::operator= (const TVector &v)
 {
     if (this != &v)
     {
@@ -15,4 +16,12 @@ TVector <Valtype>& TVector<Valtype>::operator=(const TVector &v)
         pVector[i]=v.pVector[i];
     }
     return *this;
+}
+template <class ValType>
+TVector<ValType> TVector<ValType>::operator+ (const TVector<ValType> &v)
+{
+    TVector temp(Size, StartIndex);
+    for (int i = 0; i < Size; i++)
+        temp.pVector[i] = pVector[i] + v.pVector[i];
+    return temp;
 }
