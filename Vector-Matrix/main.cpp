@@ -1,6 +1,4 @@
-
 #include <iostream>
-#include "Vector.h"
 #include "Matrix.h"
 
 using namespace std;
