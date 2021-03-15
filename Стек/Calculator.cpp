@@ -4,7 +4,7 @@
 #include <cmath>
 using namespace std;
 
-int Calc::GetPriority(char m) {
+int Calc::GetPriority(char m) { // определяет приоритет операций
 	switch (m)
 	{
 	case '(':return 0;
@@ -17,7 +17,7 @@ int Calc::GetPriority(char m) {
 	throw - 1;
 }
 // калькулятор через стек
-void Calc::ToPostFix() {
+void Calc::ToPostFix() { // переводит выражение в постфиксную форму
 	postfix = "";
 	stop.clear();
 	string tmp = "(" + infix + ")";
@@ -44,16 +44,16 @@ void Calc::ToPostFix() {
 	}
 }
 
-void Calc::SetInfix(string inf) {
+void Calc::SetInfix(string inf) { // получает инфиксную форму
 	infix = inf;
 }
 
-string Calc::GetPostfix() {
+string Calc::GetPostfix() { // возвращает постфиксную форму
 	this->ToPostFix();
 	return postfix;
 }
 
-double Calc::CalcS() {
+double Calc::CalcS() { // вычисляет выражение
 	double num1, num2, res;
 	stnum.clear();
 	for (int i = 0; i < postfix.size(); i++) {
