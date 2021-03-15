@@ -1,0 +1,4 @@
+C:\Users\Hlomida\source\repos\Bits\Debug\Bits.exe
+C:\Users\Hlomida\source\repos\Bits\Debug\Bits.pdb
+C:\Users\Hlomida\source\Код\Биты\Debug\Bits.exe
+C:\Users\Hlomida\source\Код\Биты\Debug\Bits.pdb

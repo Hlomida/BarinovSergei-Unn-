@@ -1,0 +1,9 @@
+﻿C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\MSBuild\Microsoft\VC\v160\Microsoft.CppBuild.targets(491,5): warning MSB8028: промежуточный каталог (Debug\) содержит файлы, которые используются совместно с другим проектом (Стек.vcxproj).  Это может привести к ошибкам очистки и перестроения.
+  Calculator.cpp
+C:\Users\Hlomida\source\Код\Стек\Calculator.cpp(24,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Hlomida\source\Код\Стек\Calculator.cpp(59,20): warning C4018: <: несоответствие типов со знаком и без знака
+  Source.cpp
+C:\Users\Hlomida\source\Код\Стек\Source.cpp(12,20): warning C4018: <: несоответствие типов со знаком и без знака
+C:\Users\Hlomida\source\Код\Стек\Source.cpp(29,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+  Создание кода...
+  Стек.vcxproj -> C:\Users\Hlomida\source\Код\Стек\Debug\Stack.exe

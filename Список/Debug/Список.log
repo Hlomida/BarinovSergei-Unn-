@@ -1,0 +1,4 @@
+﻿  List.cpp
+C:\Users\Hlomida\source\Код\Список\List.cpp(8,1): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\Users\Hlomida\source\Код\Список\List.cpp(10,9): warning C4101: enter: неиспользованная локальная переменная
+  Список.vcxproj -> C:\Users\Hlomida\source\Код\Список\Debug\Список.exe
