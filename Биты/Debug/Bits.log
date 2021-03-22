@@ -1,4 +1,0 @@
-﻿  Main.cpp
-C:\Users\Hlomida\source\Код\Биты\Set.h(75,1): warning C4305: =: усечение из "int" в "char"
-C:\Users\Hlomida\source\Код\Биты\Set.h(75,9): warning C4309: =: усечение константного значения
-  Bits.vcxproj -> C:\Users\Hlomida\source\Код\Биты\Debug\Bits.exe
