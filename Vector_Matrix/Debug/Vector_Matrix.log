@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\eemee\source\repos\Vector_Matrix\Vector_Matrix\matrix.h(90): warning C4715: Matrix::operator-: значение возвращается не при всех путях выполнения
+  Vector_Matrix.vcxproj -> C:\Users\eemee\source\repos\Vector_Matrix\Debug\Vector_Matrix.exe

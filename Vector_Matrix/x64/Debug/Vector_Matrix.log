@@ -1,0 +1,3 @@
+﻿  Source.cpp
+C:\Users\Hlomida\source\repos\Vector-Matrix\Vector_Matrix\Vector_Matrix\matrix.h(90): warning C4715: Matrix::operator-: значение возвращается не при всех путях выполнения
+  Vector_Matrix.vcxproj -> C:\Users\Hlomida\Source\Repos\Vector-Matrix\Vector_Matrix\x64\Debug\Vector_Matrix.exe
